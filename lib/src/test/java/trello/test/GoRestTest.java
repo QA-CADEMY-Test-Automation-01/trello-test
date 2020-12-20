@@ -34,7 +34,7 @@ public class GoRestTest {
     public void PostUser(){
         newuserID = given().spec(requestSpecification).
                 body("{\"name\":\"Tenali Ramakrishna\", \"gender\":\"Male\", \"email\":\"tenali.dd@15ce.com\", \"status\":\"Active\"}").
-                when().
+                when().log().all().
                 post("/public-api/users").
                 then().log().all().
                 assertThat().statusCode(200).extract().response().path("data.id");
