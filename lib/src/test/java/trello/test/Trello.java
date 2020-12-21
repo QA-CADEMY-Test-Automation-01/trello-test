@@ -53,7 +53,6 @@ public class Trello {
                 spec(responseSpecification).
                 assertThat().
                 body("name", equalTo("Example Board"));
-
     }
 
     @Test

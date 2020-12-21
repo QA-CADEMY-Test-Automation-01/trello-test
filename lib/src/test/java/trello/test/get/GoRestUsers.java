@@ -1,4 +1,4 @@
-package trello.test.GET;
+package trello.test.get;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -12,14 +12,14 @@ import trello.test.RequestManager;
 
 import static io.restassured.RestAssured.given;
 
-public class GetBoards {
+public class GoRestUsers {
     private RequestSpecification requestSpecification;
     private ResponseSpecification responseSpecification;
 
     String userId = "";
 
 
-    public GetBoards() {
+    public GoRestUsers() {
 
         requestSpecification = new Autentication().getRequestSpecification();
     }

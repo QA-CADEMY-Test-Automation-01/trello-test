@@ -7,18 +7,29 @@ import static io.restassured.RestAssured.given;
 
 public final class RequestManager {
 
-    private static RequestSpecification requestSpecification = new Autentication().getRequestSpecification();
+    private static RequestSpecification requestSpecification = new TrelloAuth().getRequestSpecification();
 
     public static Response get(String endpoint){
         return given()
-                .spec(requestSpecification).
+                .spec(requestSpecification)
+                .log().all().
         when().get(endpoint);
     }
 
     public static Response post(String endpoint, String body){
-        return given().
-                spec(requestSpecification).
-                body(body).
-                when().post(endpoint);
+        return given()
+                .spec(requestSpecification)
+                .log().all()
+                .body(body)
+                .when()
+                .post(endpoint);
+    }
+
+    public static Response delete(String endpoint){
+        return given()
+                .spec(requestSpecification)
+                .log().all()
+                .when()
+                .delete(endpoint);
     }
 }
