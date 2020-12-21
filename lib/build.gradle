@@ -25,5 +25,5 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:29.0-jre'
-    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
 }
