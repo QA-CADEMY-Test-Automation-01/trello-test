@@ -3,6 +3,7 @@ package trello.test.post;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.After;
+import org.junit.Test;
 import trello.test.Autentication;
 
 import static io.restassured.RestAssured.given;
@@ -18,6 +19,7 @@ public class GoUser {
         requestSpecification = new Autentication().getRequestSpecification();
     }
 
+    @Test
     public void createUser(){
         boardId = given().
                 spec(requestSpecification).
