@@ -12,16 +12,14 @@ public final class RequestManager {
     public static Response get(String endpoint){
         return given()
                 .spec(requestSpecification)
-                .log().all().
-        when().get(endpoint);
+                .when().log().all().get(endpoint);
     }
 
     public static Response post(String endpoint, String body){
-        return given()
+        return  given()
                 .spec(requestSpecification)
-                .log().all()
                 .body(body)
-                .when()
+                .when().log().all()
                 .post(endpoint);
     }
 

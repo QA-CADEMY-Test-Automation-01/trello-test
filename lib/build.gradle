@@ -34,4 +34,6 @@ dependencies {
 
     testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '6.6.1'
 
+    compile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.8.1'
+
 }
