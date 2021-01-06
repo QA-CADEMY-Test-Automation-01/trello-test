@@ -17,14 +17,20 @@ public class Hooks {
 
     @Before("@createBoard")
     public void createBoard(){
-        Response resp = RequestManager.post("/1/boards","{\"name\":\"test bor\"}" );
-        helper.context.put("board",resp);
+        helper.response= RequestManager.post("/1/boards","{\"name\":\"testAAA\"}" );
+        helper.context.put("board",helper.response);
     }
 
 
     @After("@createBoard")
     public  void deleteBoard() {
         Response response = (Response) helper.context.get("board");
+        RequestManager.delete("/1/boards/" + response.jsonPath().getString("id"));
+    }
+
+    @After("@otherTag")
+    public  void deleteBoardB() {
+        Response response = (Response) helper.context.get("B");
         RequestManager.delete("/1/boards/" + response.jsonPath().getString("id"));
     }
 

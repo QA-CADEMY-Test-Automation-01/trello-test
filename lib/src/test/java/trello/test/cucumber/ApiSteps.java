@@ -3,6 +3,8 @@ package trello.test.cucumber;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
+import org.junit.Assert;
 import trello.test.RequestManager;
 
 public class ApiSteps {
@@ -35,5 +37,17 @@ public class ApiSteps {
     @And("I set body")
     public void iSetBody(String body) {
         this.body = Utils.buildBody(helper, body);
+    }
+
+    @Given("I save the response as {string}")
+    public void i_save_the_response_as(String responseName) {
+        helper.context.put(responseName, helper.response);
+    }
+
+    @And("I validate the response contains {string} is equals than {string}")
+    public void iValidateTheResponseContainsIsEqualsThan(String param, String expectValue) {
+        Response response = helper.response;
+        String actual = response.jsonPath().getString(param);
+        Assert.assertEquals(expectValue, actual);
     }
 }
