@@ -44,7 +44,7 @@ public class Trello {
     public void testTrelloBoardsPostMethod() {
         given().
                 spec(requestSpecification).
-                body("{\"name\":\"Example Board\"}").
+                body("{\"name\":\"Example Boardd\"}").
                 log().all().
                 when().
                 post("/1/boards").
@@ -53,7 +53,6 @@ public class Trello {
                 spec(responseSpecification).
                 assertThat().
                 body("name", equalTo("Example Board"));
-
     }
 
     @Test
